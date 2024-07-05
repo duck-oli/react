@@ -6,7 +6,7 @@ function Movie({ coverImg, title, summary, year, id }) {
   return (
     <div className={styles.movie}>
       <div>
-        <Link to={`/movie/${id}`}>
+        <Link to={`${process.env.PUBLIC_URL}/movie/${id}`}>
           <img src={coverImg} alt={title} className={styles.img}/>
         </Link>
       </div>

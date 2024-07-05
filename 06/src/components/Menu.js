@@ -6,7 +6,7 @@ function Menu() {
   return (
     <div className={styles.mainBar}>
       <h1 className={styles.title}>
-        <Link to={`/`}>Home</Link>
+        <Link to={`${process.env.PUBLIC_URL}/`}>Home</Link>
       </h1>
       <a href="#"><img src={search} className={styles.img}/></a>
     </div>
