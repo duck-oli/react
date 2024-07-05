@@ -1,9 +1,8 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/04/node_modules
-/05/node_modules
-/06/node_modules
+
+/*/node_modules
 /.pnp
 .pnp.js
 
@@ -23,5 +22,3 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-.gitignore
