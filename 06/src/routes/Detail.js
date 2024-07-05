@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Movie from "../components/Movie";
+import Movie from "../components/Movie.Detail";
+import Menu from "../components/Menu";
 
 function Detail() {
   const { id } = useParams();
@@ -19,7 +20,18 @@ function Detail() {
 
   return (
     <div>
-      {loading ? <h1>Loading...</h1> : null}
+      <Menu/>
+      {loading ? null : 
+        <Movie 
+          coverImg={movie.large_cover_image}
+          title={movie.title}
+          summary={movie.description_intro}
+          genres={movie.genres}
+          runtime={movie.runtime}
+          rating={movie.rating}
+          year={movie.year}
+        />
+      }
     </div>
   );
 }
