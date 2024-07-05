@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    function Btn({ text = "버튼", fontSize = 12 }) {
+      return (
+        <button
+          style={{
+            backgroundColor: "tomato",
+            color:"white",
+            padding:"10px 20px",
+            border:0,
+            borderRadius:10,
+            fontSize
+        }}>
+          {text}
+        </button>
+      );
+    }
+
+    function Input({type = "text", disabled = false, placeholder}) {
+      return (
+        <input 
+          type={type}
+          placeholder={placeholder}
+          id="input"
+          disabled={disabled}
+        />
+      );
+    }
+    // const MemorizedBtn = React.memo(Btn); 변경된 자식만 다시 렌더
+
+    Btn.propTypes = {
+      text: PropTypes.string.isRequired,
+      fontSize: PropTypes.number,
+    };
+
+    Input.propTypes = {
+      type: PropTypes.string.isRequired,
+      disabled: PropTypes.bool,
+      placeholder: PropTypes.string,
+    };
+
+
+    function App() {
+        return(
+          <div>
+            <Btn text="Save Changes" fontSize={20} />
+            <Btn text="Continue" />
+            <Btn text="버튼1" fontSize={16} />
+            <div>
+              <Input type="text" placeholder="텍스트"  disabled={true}/>
+              <Input type="number" placeholder="숫자"/>
+            </div>
+          </div>
+        );
+      }
+      
+    const root = document.getElementById("root");
+    ReactDOM.render(<App />, root);
+  </script>
+</html>
